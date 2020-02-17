@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>IPFS + Arweave</title>
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,400i|PT+Serif:700" rel="stylesheet">
+    <link rel="stylesheet" href="dist/css/style.css">
+</head>
+<body class="is-boxed has-animations">
+	<div class="body-wrap boxed-container">
+		<header class="site-header">
+				<div class="container">
+						<div class="site-header-inner">
+								<div class="header-links list-reset m-0">
+									<a href="#"></a>
+								</div>
+						</div>
+				</div>
+		</header>
+
+		<main>
+			<section class="hero text-center">
+				<div class="container-sm">
+					<!--<div class="header-title text-light">IPFS + Arweave</div>-->
+					<div class="hero-inner">
+						<h1 class="hero-title h2-mobile mt-0 text-light">Permanently pin your<br/><a href="https://ipfs.io" target="_blank">IPFS</a> data with <a href="https://arweave.org" target="_blank">Arweave</a></h1>
+						<p class="header-title text-light">Two decentralized worlds, One HTTP request, No fees</p>
+
+						<div class="hero-media">
+							<div class="container">
+								<pre class="pt-16 pb-16" style="display: inline-block; margin-top: -16px;">POST https://ipfsarweave.now.sh/permapin/<span>&lt;ipfsHash&gt;</span></pre>
+
+								<p class="hero-cta text-light pb-32 pt-32 js-hide">
+									<a class="button button-secondary button-shadow js-example m-16" href="#!">Examples</a>
+									<a class="button button-secondary button-shadow m-16" href="https://reqbin.com/eamlpwww" target="_blank">Try it out!</a>
+								</p>
+
+								<div class="js-reveal" style="display: none">
+									<pre class="text-left"><h6>Javascript</h6>(async () =&gt; {
+  const response = await fetch(
+	  'https://ipfsarweave.now.sh/permapin/<span>&lt;ipfsHash&gt;</span>',
+	  {method: 'POST'}
+  );
+
+  console.log(await response.json());
+})();</pre>
+
+									<pre class="text-left"><h6>Node.js</h6>const axios = require('axios');
+
+axios.post(
+  'https://ipfsarweave.now.sh/permapin/<span>&lt;ipfsHash&gt;</span>'
+).then(response =&gt; {
+  console.log(response.body);
+});</pre>
+
+
+									<pre class="text-left"><h6>Bash</h6>curl -X POST \
+  https://ipfsarweave.now.sh/permapin/<span>&lt;ipfsHash&gt;</span></pre>
+
+									<p class="hero-cta text-light pb-32"><a class="button button-secondary button-shadow" href="https://reqbin.com/eamlpwww" target="_blank">Try it out!</a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<div class="features-extended-inner section-inner has-top-divider">
+				<div class="features-extended-header text-center">
+					<div class="container-sm">
+						<h2 class="section-title mt-0">IPFS + Arweave</h2>
+						<p class="section-paragraph"><a href="https://ipfs.io" target="_blank">IPFS</a> is a popular P2P network for sharing data in a decentralized way, but it lacks one feature: Permanence.
+						Content on the IPFS network can disappear. If no-one hosts the data, it could be lost forever. </p>
+						<p class="section-paragraph">The <a href="https://arweave.org" target="_blank">Arweave blockchain</a> can now store and pin files onto IPFS and keep them available permanently. This simple API takes an IPFS Hash, stores the data onto Arweave and pins it to IPFS.</p>
+					</div>
+				</div>
+			</div>
+		</main>
+	</div>
+
+	<script src="src/js/jquery.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('.js-example').on('click', function(e) {
+				e.preventDefault();
+
+				$('.js-hide').slideUp();
+				$('.js-reveal').slideDown();
+			});
+		});
+	</script>
+</body>
+</html>

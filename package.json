@@ -1,0 +1,19 @@
+{
+    "name": "ipfs2arweave",
+    "version": "1.0.0",
+    "description": "Import files from IPFS to Arweave",
+    "license": "MIT",
+    "repository": "cedriking/ipfs2arweave",
+    "author": {
+        "name": "Cedrik Boudreau",
+        "url": "https://github.com/cedriking"
+    },
+    "scripts": {
+        "test": "mocha --timeout 10000"
+    },
+    "dependencies": {
+        "arweave": "^1.5.3",
+        "file-type": "^12.4.0"
+    },
+    "devDependencies": {}
+}
