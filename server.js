@@ -11,6 +11,14 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, 'public/index.html')); 
 });
 
+app.get('/permapin', (req, res) => {
+  res.redirect('/');
+});
+
+app.post('/permapin', (req, res) => {
+  res.redirect('/');
+});
+
 app.get('/permapin/:hash', (req, res) => {
   permapin(req, res);
 });
