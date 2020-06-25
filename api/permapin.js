@@ -2,10 +2,10 @@ const https = require('https');
 const arweave = require('./../arweave');
 const bufferType = require('file-type');
 
-
 module.exports = async (req, res) => {
+
     const chunks = [];
-    const ipfsHash = req.query.hash.trim();
+    const ipfsHash = (req.query.hash||req.params.hash).trim();
 
     if (!ipfsHash) {
         return res.status(400).send(

@@ -1,17 +1,17 @@
 const Arweave = require('arweave/node');
 
-export const arweave = Arweave.init({
+const arweave = Arweave.init({
     host: 'arweave.net',
     protocol: 'https',
     timeout: 10000,
     port: 443
 });
 
-export const search = async (key, value) => {
+const search = async (key, value) => {
     return await arweave.transactions.search(key, value);
 };
 
-export const transaction = async (data, tags) => {
+const transaction = async (data, tags) => {
     const wallet = JSON.parse(process.env.ARWEAVE_WALLET);
     const tx = await arweave.createTransaction({data}, wallet);
 
@@ -31,3 +31,7 @@ export const transaction = async (data, tags) => {
         'statusCode': response.status
     };
 };
+
+arweave.search = search;
+arweave.transaction = transaction;
+module.exports = arweave;

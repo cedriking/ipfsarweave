@@ -172,3 +172,4 @@ $RECYCLE.BIN/
 dist/
 *.pdf
 .idea/
+node_modules
