@@ -5,6 +5,6 @@
         {"src": "/permapin/(?<hash>[^/]*)", "methods": ["POST", "GET"], "dest": "/api/permapin.js?hash=$hash"}
     ],
     "env": {
-        "ARWEAVE_WALLET": "@ipfs2arweave-wallet"
+        "ARWEAVE_WALLET": "@ipfs2arweave"
     }
 }
