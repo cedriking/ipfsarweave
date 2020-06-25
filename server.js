@@ -19,4 +19,4 @@ app.post('/permapin/:hash', (req, res) => {
   permapin(req, res);
 });
 
-app.listen(3000, () => console.log('ready on port 3000'));
+app.listen((process.env.PORT || 8080), (process.env.HOST || '0.0.0.0'), () => console.log('ready on port 3000'));
