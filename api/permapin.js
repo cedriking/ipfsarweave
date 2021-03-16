@@ -25,6 +25,7 @@ module.exports = async (req, res) => {
 
     https.get(`https://ipfs.io/ipfs/${ipfsHash}`, {timeout: 10000}, response => {
         response.setEncoding('binary');
+        response.setHeader('Access-Control-Allow-Origin', '*');
 
         response.on('data', chunk => {
             chunks.push(Buffer.from(chunk, 'binary'))

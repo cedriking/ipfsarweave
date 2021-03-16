@@ -172,3 +172,4 @@ $RECYCLE.BIN/
 *.pdf
 .idea/
 node_modules
+.history
