@@ -1,6 +1,6 @@
 const https = require('https');
 const arweave = require('./../arweave');
-const bufferType = require('file-type');
+const {fromBuffer} = require('file-type');
 
 module.exports = async (req, res) => {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -40,7 +40,7 @@ module.exports = async (req, res) => {
                 );
             }
 
-            const type = bufferType(data);
+            const type = fromBuffer(data);
 
             let tags = {
                 'IPFS-Add': ipfsHash,
