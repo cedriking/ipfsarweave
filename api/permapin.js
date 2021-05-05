@@ -40,7 +40,7 @@ module.exports = async (req, res) => {
                 );
             }
 
-            const type = fromBuffer(data);
+            const type = await fromBuffer(data);
 
             let tags = {
                 'IPFS-Add': ipfsHash,
