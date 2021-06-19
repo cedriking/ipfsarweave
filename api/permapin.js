@@ -24,7 +24,7 @@ module.exports = async (req, res) => {
         });
     }
 
-    https.get(`https://ipfs.io/ipfs/${ipfsHash}`, {timeout: 10000}, response => {
+    const ipfsReq = https.get(`https://ipfs.io/ipfs/${ipfsHash}`, {timeout: 10000}, response => {
         if (response.statusCode !== 200)
           return res.status(response.statusCode)
             .send(`https://ipfs.io/ipfs/${ipfsHash} responded with ${response.statusCode} - ${response.statusMessage}`)
@@ -33,6 +33,15 @@ module.exports = async (req, res) => {
 
         response.on('data', chunk => {
             chunks.push(Buffer.from(chunk, 'binary'))
+
+            const data = Buffer.concat(chunks);
+
+            if (data.length >= 7340032) {
+                ipfsReq.destroy();
+                return res.status(400).send(
+                    'Error: Max file size of 7 MB reached!'
+                );
+            }
         });
 
         response.on('end', async () => {
