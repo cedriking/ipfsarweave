@@ -36,10 +36,10 @@ module.exports = async (req, res) => {
 
             const data = Buffer.concat(chunks);
 
-            if (data.length >= 7340032) {
+            if (data.length >= 52428800) {
                 ipfsReq.destroy();
                 return res.status(400).send(
-                    'Error: Max file size of 7 MB reached!'
+                    'Error: Max file size of 50 MB reached!'
                 );
             }
         });
@@ -47,9 +47,9 @@ module.exports = async (req, res) => {
         response.on('end', async () => {
             const data = Buffer.concat(chunks);
 
-            if (data.length >= 7340032) {
+            if (data.length >= 52428800) {
                 return res.status(400).send(
-                    'Error: Max file size of 7 MB reached!'
+                    'Error: Max file size of 50 MB reached!'
                 );
             }
 
